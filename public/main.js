@@ -18,4 +18,12 @@
 
   console.log(rangePrice);
 
+  var pound = items.filter((item) => {
+    return item.currencyCode === 'GBP';
+  }).map(function(item) {
+    return item.title + ' costs ' + item.price;
+  });
+
+  console.log(pound);
+
 })();
