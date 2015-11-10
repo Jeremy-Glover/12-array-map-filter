@@ -7,7 +7,8 @@
 
   var averagePrice = priceSum / items.length;
 
-  console.log(averagePrice);
+  //later I added Math.round to get it to 23.63
+  console.log(Math.round(100 * averagePrice) / 100);
 
   //used the > and < item.price correctly but had an extra if statement that served no purpose.
   var rangePrice = items.filter((item) => {
@@ -49,4 +50,17 @@
 );
 
   console.log(minMaterials);
+
+  var madeBy = items.filter((item) => {
+    if (item.whoMade) {
+      return item.whoMade.indexOf('i_did') !== -1;
+    }
+  });
+
+  var soldBy = items.reduce(() => {
+    return madeBy.length;
+  });
+
+  console.log(soldBy + ' were made by their sellers');
+
 })();
