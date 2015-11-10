@@ -1,17 +1,21 @@
-/*(function() {
-var priceRange = (item) => {
-  return items.filter((item) => {
-    if (item.price) {
-      item.price > 14 & item.price < 18;
-    }
+/* globals items */
+(function() {
+
+  var priceSum = items.reduce((currentSum, item) => {
+    return currentSum + item.price;
+  }, 0);
+
+  var averagePrice = priceSum / items.length;
+
+  console.log(averagePrice);
+
+  //I had the > and < item.price correct but had an extra if statement that served no purpose.
+  var rangePrice = items.filter((item) => {
+    return item.price > 14 && item.price < 18;
+  }).map(function(item) {   //After you helped correct my original code, I then wanted to get just the titles so I used map to pull those.
+    return item.title;
   });
-};
 
-//var averagePrice = items.filter(between);
+  console.log(rangePrice);
 
-console.log(priceRange);
-
-//})();*/
-
-var items[];
-console.log(items);
+})();
